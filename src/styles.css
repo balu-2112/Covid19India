@@ -1,0 +1,36 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+html{
+    margin: 0;
+    padding: 0;
+    max-width: 1150px;
+}
+
+body{
+    background-color: #33334d !important;
+}
+
+a{
+    text-decoration: none;
+}
+
+.heading h1{
+    position: sticky;
+    text-align: center;
+    cursor: pointer;
+    font-size: 30px;
+    color: blueviolet;
+    background-color: #33334d;
+}
+
+.heading h1:hover{
+    text-decoration: none;
+    color: purple;
+}
+
+@media screen and (max-width: 600px) {
+    html{
+        max-width: 600px;
+    }
+    
+}
