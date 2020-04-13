@@ -17,7 +17,8 @@ import { ChartOptions } from 'chart.js';
   styleUrls: ['./indiamap.component.css']
 })
 export class IndiamapComponent implements OnInit {
-
+  public span_info ="Click on the map to get Info";
+  public nodisplay;
   public dates =  [];
   public date_count =[];
   public date_cured=[];
@@ -254,8 +255,7 @@ export class IndiamapComponent implements OnInit {
 
 
 display($event, state){
-  // console.log(state);
-  // console.log(this.all_dates[0]['day1'][0]);
+  this.span_info="";
   for(var i=0; i<this.all_states.length; i++){
     if(state === this.all_states[i].State){
       this.present_state['state'] = this.all_states[i].State;
@@ -276,7 +276,11 @@ display($event, state){
   }
 }
 
+Nospan(){
+  this.span_info="";
+  this.nodisplay="nospan";
 
+}
 
 
 

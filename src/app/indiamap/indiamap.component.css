@@ -4,6 +4,10 @@ svg path{
     stroke: black;
     cursor: pointer;
 }
+.head #sapn-info{
+    display: none;
+}
+
 
 svg path:hover{
     fill: rgba(255, 0, 0, 0.4);
@@ -139,6 +143,25 @@ svg{
 
 
 @media screen and (max-width: 600px) {
+    .head #sapn-info{
+        color: green;
+        display: block;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0,0,0,0.7);
+    }
+
+    .head #sapn-info b{
+        color: white;
+        float: right;
+        margin-right: 1%;
+        cursor: pointer;
+    }
+
+    .nospan{
+        display: none;
+    }
     .state-info{
         height: 30%;
         width: 95%;
@@ -154,13 +177,14 @@ svg{
     }
     .linechart{
         margin-left: 0%;
-        margin-top: 8%;
+        top: 8%;
     }
     .state-info{
         position: relative;
         margin-top: -10%;
     }
     .table1{
+        width: 100%;
         margin-top: -5%;
     }
     svg{
