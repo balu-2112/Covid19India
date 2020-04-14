@@ -14,7 +14,7 @@ a{
     text-decoration: none;
 }
 
-.heading h1{
+#titlemsg{
     position: sticky;
     text-align: center;
     cursor: pointer;
@@ -23,7 +23,7 @@ a{
     background-color: #33334d;
 }
 
-.heading h1:hover{
+#titlemsg:hover{
     text-decoration: none;
     color: purple;
 }
@@ -35,8 +35,8 @@ a{
 	height: 20vh;
 	background-image: url('./assets/imgs/Corona.svg');
 	background-repeat: no-repeat;
-	margin-left: 40%;
-	margin-top: 18%;
+    margin-left: 40%;
+	margin-top: 16%;
 	animation-name: corona;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
@@ -67,10 +67,20 @@ a{
     100%{color: green;}
 }
 
+#main{
+    display: none;
+}
 
 @media screen and (max-width: 600px) {
     html{
         max-width: 500px;
+    }
+    #loadmsg{
+        font-size: 20px;
+    }
+    #loading{
+        width: 30%;
+        height: 30vh;
     }
     
 }
