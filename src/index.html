@@ -2,17 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Cvindia</title>
+  <title>Covid19 India</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
   <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
 </head>
-<body>
+<body onload="loader()">
+  <h1 id="loadmsg" style="text-align: center;">Stay Home #Stay Safe!!!</h1>
+  <div id="loading">
+  </div>
   <div class="heading">
-  <a href="#"><h1>Covid19 India</h1></a>
+  <a href="#"><h1 style="text-align: center;">Covid19 India</h1></a>
   </div>
   <app-root></app-root>
 </body>
+
+<script>
+    var ani = document.getElementById('loading');
+    var ms = document.getElementById('loadmsg');
+    function loader(){
+      ani.style.display = "none";
+      ms.style.display = "none";
+    }
+</script>
+
 </html>

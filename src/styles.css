@@ -28,6 +28,46 @@ a{
     color: purple;
 }
 
+#loading{
+    display: block;
+    z-index: 99999;
+	width: 20%;
+	height: 20vh;
+	background-image: url('./assets/imgs/Corona.svg');
+	background-repeat: no-repeat;
+	margin-left: 40%;
+	margin-top: 18%;
+	animation-name: corona;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes corona{
+	0%{transform: rotate(0deg); background-image: url('./assets/imgs/Corona.svg');}
+	20%{transform: rotate(72deg); background-image: url('./assets/imgs/stop.svg');}
+	40%{transform: rotate(144deg); background-image: url('./assets/imgs/Corona.svg');}
+	60%{transform: rotate(216deg); background-image: url('./assets/imgs/stop.svg');}
+	80%{transform: rotate(288deg); background-image: url('./assets/imgs/Corona.svg');}
+	100%{transform: rotate(360deg); background-image: url('./assets/imgs/stop.svg');}
+}
+
+#loadmsg{
+    display: block;
+    color: green;
+    font-size: 35px;
+    text-align: center;
+    animation-name: msg;
+    animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes msg{
+    0%{color:green;}
+    50%{color: red; transform: scale(1.1,1.1);}
+    100%{color: green;}
+}
+
+
 @media screen and (max-width: 600px) {
     html{
         max-width: 500px;

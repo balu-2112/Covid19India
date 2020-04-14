@@ -229,7 +229,8 @@ export class IndiamapComponent implements OnInit {
 
 
 
-  public present_state={"State": "Andhra Pradesh", "Total": 439, "Active": 420, "Cured": 12, "Death": 7}
+  public present_state={"State": this.all_states[8].State, "Total": this.all_states[8].Total, 
+  "Active": this.all_states[8].Active, "Cured": this.all_states[8].Cured, "Death": this.all_states[8].Death};
 
   constructor() {
     this.day_count();
