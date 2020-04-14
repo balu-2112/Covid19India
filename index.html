@@ -6,25 +6,43 @@
   <base href="https://bollubalaji.github.io/Covid19India/">  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
-<link rel="stylesheet" href="styles.c78bbc50aca669844558.css"></head>
+<link rel="stylesheet" href="styles.cf12d5cfa48105e2bbeb.css"></head>
 <body onload="loader()">
+  <a href="#" id="titlemsg"><h1 style="text-align: center;">Covid19 India</h1></a>
   <h1 id="loadmsg" style="text-align: center;">Stay Home #Stay Safe!!!</h1>
   <div id="loading">
   </div>
   <div class="heading">
-  <a href="#"><h1 style="text-align: center;">Covid19 India</h1></a>
   </div>
-  <app-root></app-root>
-<script src="runtime-es2015.0811dcefd377500b5b1a.js" type="module"></script><script src="runtime-es5.0811dcefd377500b5b1a.js" nomodule defer></script><script src="polyfills-es5.1a3c78b07cd6f16c6e9a.js" nomodule defer></script><script src="polyfills-es2015.1f913f16a2d346cc8bdc.js" type="module"></script><script src="main-es2015.24e139c69ab9af509efa.js" type="module"></script><script src="main-es5.24e139c69ab9af509efa.js" nomodule defer></script></body>
+  <app-root id="main"></app-root>
+<script src="runtime-es2015.0811dcefd377500b5b1a.js" type="module"></script><script src="runtime-es5.0811dcefd377500b5b1a.js" nomodule defer></script><script src="polyfills-es5.1a3c78b07cd6f16c6e9a.js" nomodule defer></script><script src="polyfills-es2015.1f913f16a2d346cc8bdc.js" type="module"></script><script src="main-es2015.d1a7d580359ac4c77b32.js" type="module"></script><script src="main-es5.d1a7d580359ac4c77b32.js" nomodule defer></script></body>
 
 <script>
-    var ani = document.getElementById('loading');
+
+  $(document).ready(function(){
+    var main = document.getElementById('main');
+    var mainmap = document.getElementById('mainmap');
     var ms = document.getElementById('loadmsg');
-    function loader(){
-      ani.style.display = "none";
-      ms.style.display = "none";
-    }
+    setTimeout(function() {
+      $('#loading').show(0).delay(2000).hide(0);
+      setTimeout(function(){
+        mainmap.style.display = "block";
+        main.style.display = "block";
+        ms.style.display ="none";
+      },2000);
+      
+    }, 2000);
+    
+   
+  });
+    // var ani = document.getElementById('loading');
+    // var ms = document.getElementById('loadmsg');
+    // function loader(){
+    //   ani.style.display = "none";
+    //   ms.style.display = "none";
+    // }
 </script>
 
 </html>
