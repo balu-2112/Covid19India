@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import State_data from '../files/State_data.json' ;
 import Day_wise_details  from '../files/Day_wise_details.json';
 import Day_wise_cured from '../files/Day_wise_cured.json';
-import Day_wise_death from '../files/Day_wise_death1.json';
+import Day_wise_death from '../files/Day_wise_death.json';
 import Total_samples from '../files/Total_Samples.json';
 import Negative from '../files/Negative.json';
 import Positive from '../files/Positive.json';
@@ -53,7 +53,7 @@ export class IndiamapComponent implements OnInit {
 
   //Pie Chart 
   public pieChartLabels = ['Total', 'Active', 'Cured', 'Death'];
-  public pieChartData = [8472, 7202, 980, 290];
+  public pieChartData = [10453, 8902, 1193, 358];
   public pieChartType = 'pie'
 
   public barChartOptions = {
@@ -67,7 +67,7 @@ export class IndiamapComponent implements OnInit {
 
   public barChartData = [
     {data: [381, 366, 10, 5], label: 'Andhra Pradesh'},
-    {data: [7598, 6578, 774, 246], label: 'India'}
+    {data: [10453, 8902, 1193, 358], label: 'India'}
   ];
 
 
@@ -229,14 +229,7 @@ export class IndiamapComponent implements OnInit {
 
 
 
-  public present_state={
-    "state": "Andhra Pradesh",
-    "total": "381",
-    "active": "366",
-    "cured": "10",
-    "death": "5",
-    "color": "#669999"
-  }
+  public present_state={"State": "Andhra Pradesh", "Total": 439, "Active": 420, "Cured": 12, "Death": 7}
 
   constructor() {
     this.day_count();
@@ -258,20 +251,11 @@ display($event, state){
   this.span_info="";
   for(var i=0; i<this.all_states.length; i++){
     if(state === this.all_states[i].State){
-      this.present_state['state'] = this.all_states[i].State;
-      this.present_state['total'] = this.all_states[i].Total;
-      this.present_state['active'] = this.all_states[i].Active;
-      this.present_state['cured'] = this.all_states[i].Cured;
-      this.present_state['death'] = this.all_states[i].Death;
-      if(this.all_states[i].Total> "700"){
-        this.present_state.color = "#4d0f00";
-      }
-      else if((this.all_states[i].Total>"300") && (this.all_states[i].Total< "700")){
-        this.present_state.color = "#cc2900";
-      }
-      else{
-        this.present_state.color = "#ffd6cc";
-      }
+      this.present_state['State'] = this.all_states[i].State;
+      this.present_state['Total'] = this.all_states[i].Total;
+      this.present_state['Active'] = this.all_states[i].Active;
+      this.present_state['Cured'] = this.all_states[i].Cured;
+      this.present_state['Death'] = this.all_states[i].Death;
     }
   }
 }
