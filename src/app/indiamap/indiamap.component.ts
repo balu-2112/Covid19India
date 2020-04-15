@@ -28,6 +28,8 @@ export class IndiamapComponent implements OnInit {
   public negative =[];
   public positive =[];
 
+  public hasTrue =  true;
+
   public backgroundbar ="rgb(255,255,0)";
   public all_states= State_data;
   public all_dates = Day_wise_details;
@@ -250,6 +252,7 @@ export class IndiamapComponent implements OnInit {
 
 display($event, state){
   this.span_info="";
+  this.nodisplay="nospan";
   for(var i=0; i<this.all_states.length; i++){
     if(state === this.all_states[i].State){
       this.present_state['State'] = this.all_states[i].State;
@@ -266,8 +269,5 @@ Nospan(){
   this.nodisplay="nospan";
 
 }
-
-
-
 
 }

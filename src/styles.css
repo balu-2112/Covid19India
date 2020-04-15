@@ -35,7 +35,7 @@ a{
 	height: 20vh;
 	background-image: url('./assets/imgs/Corona.svg');
 	background-repeat: no-repeat;
-    margin-left: 40%;
+    margin-left: 35%;
 	margin-top: 16%;
 	animation-name: corona;
 	animation-duration: 2s;
@@ -44,11 +44,11 @@ a{
 
 @keyframes corona{
 	0%{transform: rotate(0deg); background-image: url('./assets/imgs/Corona.svg');}
-	20%{transform: rotate(72deg); background-image: url('./assets/imgs/stop.svg');}
-	40%{transform: rotate(144deg); background-image: url('./assets/imgs/Corona.svg');}
-	60%{transform: rotate(216deg); background-image: url('./assets/imgs/stop.svg');}
-	80%{transform: rotate(288deg); background-image: url('./assets/imgs/Corona.svg');}
-	100%{transform: rotate(360deg); background-image: url('./assets/imgs/stop.svg');}
+	20%{transform: scale(1.2,1.2); background-image: url('./assets/imgs/stop.svg');}
+	40%{transform: scale(1,1); background-image: url('./assets/imgs/Corona.svg');}
+	60%{transform: scale(1.2,1.2); background-image: url('./assets/imgs/stop.svg');}
+	80%{transform: scale(1,1); background-image: url('./assets/imgs/Corona.svg');}
+	100%{transform: scale(1.2,1.2); background-image: url('./assets/imgs/stop.svg');}
 }
 
 #loadmsg{

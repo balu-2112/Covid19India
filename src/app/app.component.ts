@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Cvindia';
+  title = 'Covid19 India';
+  msg = "Visit frequently to get live updates!!!";
 }
