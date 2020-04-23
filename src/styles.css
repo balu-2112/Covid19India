@@ -17,6 +17,7 @@ a{
 #titlemsg{
     position: sticky;
     text-align: center;
+   
     cursor: pointer;
     font-size: 30px;
     color: blueviolet;
@@ -35,7 +36,8 @@ a{
 	height: 20vh;
 	background-image: url('./assets/imgs/Corona.svg');
 	background-repeat: no-repeat;
-    margin-left: 35%;
+    margin-left: 45%;
+    align-content: center;
 	margin-top: 16%;
 	animation-name: corona;
 	animation-duration: 2s;
@@ -77,10 +79,12 @@ a{
     }
     #loadmsg{
         font-size: 20px;
+        text-align: center;
     }
     #loading{
         width: 30%;
         height: 30vh;
+        margin-left: 35%;
     }
     
 }
