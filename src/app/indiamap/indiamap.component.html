@@ -1,5 +1,5 @@
 <div class="head">
-	<span id="sapn-info" >{{span_info}} <b (click)="Nospan()" [class]="nodisplay">X</b></span>
+	<!-- <span id="sapn-info" >{{span_info}} <b (click)="Nospan()" [class]="nodisplay">X</b></span> -->
 	<div class="row">
 		<div class="col-sm-7" id="indiamap">
 		<svg id="svg2" height="100%" width="100%" viewBox="0 0 650 700" preserveAspectRatio="xMidYMid meet">
@@ -155,20 +155,20 @@
 				<h1 style="color: brown;">India</h1>
 				<hr style="width:80%; background-color: wheat;">
 					<ul>
-						<div class="bg-info">Total<br><span>26479</span></div><br>	
-						<div class="bg-primary">Active<br><span>19626</span></div><br>
-						<div class="bg-success">Cured<br><span>6024</span></div><br>
-						<div class="bg-danger">Death<br><span>829</span></div><br>
+						<div class="bg-info">Total<br><span>{{total_data['total']}}</span></div><br>	
+						<div class="bg-primary">Active<br><span>{{total_data['total'] - (total_data['discharged']+total_data['deaths'])}}</span></div><br>
+						<div class="bg-success">Cured<br><span>{{total_data['discharged']}}</span></div><br>
+						<div class="bg-danger">Death<br><span>{{total_data['deaths']}}</span></div><br>
 					</ul>
 			</div>
 			<div class="state-info" style="margin-top: 10%;">
-				<h1 style="color: brown;">{{present_state.State | titlecase}}</h1>
+				<h1 style="color: brown;">{{present_state["State"]}}</h1>
 				<hr style="width:80%; background-color: wheat;">
 				<ul>
-					<div class="bg-info">Total<br><span>{{present_state.Total}}</span></div><br>
-					<div class="bg-primary">Active<br><span>{{present_state.Active}}</span></div><br>
-					<div class="bg-success">Cured<br><span>{{present_state.Cured}}</span></div><br>
-					<div class="bg-danger">Death<br><span>{{present_state.Death}}</span></div><br>
+					<div class="bg-info">Total<br><span>{{present_state["Total"]}}</span></div><br>
+					<div class="bg-primary">Active<br><span>{{present_state["Active"]}}</span></div><br>
+					<div class="bg-success">Cured<br><span>{{present_state["Cured"]}}</span></div><br>
+					<div class="bg-danger">Death<br><span>{{present_state["Death"]}}</span></div><br>
 				</ul>
 			</div>
 
@@ -182,16 +182,7 @@
 			[plugins]="lineChartPlugins"
 			[colors]="lineChartColors">
 		</canvas>
-			
-			<!-- <div class="state-graph">
-				<canvas class="large-data" baseChart
-						[datasets]="barChartData"
-						[labels]="barChartLabels"
-						[options]="barChartOptions"
-						[legend]="barChartLegend"
-						[chartType]="barChartType">
-				</canvas>
-			</div> -->
+		
 		</div>
 	</div>
 </div>
@@ -208,20 +199,21 @@
 					<th style="padding: 0.5%; width: 20%;">Death</th>
 				</tr>
 			</thead>
-			<tbody *ngFor = "let state of all_states;">
+			<tbody *ngFor = "let state of state_data;">
 				<tr style="font-size: 12px;">
-					<td style="padding: 0.5%;">{{state.State | titlecase}}</td>
-					<td>{{state.Total}}</td>
-					<td>{{state.Active}}</td>
-					<td>{{state.Cured}}</td>
-					<td>{{state.Death}}</td>
+					<td style="padding: 0.5%;">{{state['loc']}}</td>
+					<td>{{state['totalConfirmed']}}</td>
+					<td>{{state['totalConfirmed'] - (state['discharged']+state['deaths'])}}</td>
+					<td>{{state['discharged']}}</td>
+					<td>{{state['deaths']}}</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
+	
 	<div class="col-sm-5">
 		<canvas style="background-color: rgba(0,0,255,0.1);" baseChart class="linechart" height="170%"
-			[datasets]="test_samples"
+			[datasets]="samples"
 			[labels]="testlineChartLabels"
 			[options]="testlineChartOptions"
 			[colors]="test_samples_color"
@@ -232,7 +224,7 @@
 		</canvas>
 
 		<canvas style="background-color: rgba(0,255,0,0.1);" baseChart class="linechart" height="170%"
-			[datasets]="test_negative"
+			[datasets]="negative"
 			[labels]="testlineChartLabels"
 			[options]="testlineChartOptions"
 			[colors]="test_negative_color"
@@ -242,7 +234,7 @@
 		</canvas>
 
 		<canvas style="background-color: rgba(255,0,0,0.1);" baseChart class="linechart" height="170%"
-			[datasets]="test_positive"
+			[datasets]="positive"
 			[labels]="testlineChartLabels"
 			[options]="testlineChartOptions"
 			[colors]="test_positive_color"
@@ -253,7 +245,7 @@
 		
 		
 	</div>
-</div>
+</div> 
 <!-- <hr style="width: 120%;   background-color: black;"> -->
 <div class="footer">
 	<h1>Helpful Information</h1>
