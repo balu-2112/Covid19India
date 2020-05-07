@@ -155,9 +155,9 @@
 				<h1 style="color: brown;">India</h1>
 				<hr style="width:80%; background-color: wheat;">
 					<ul>
-						<div class="bg-info">Total<br><span>{{total_data['total']}}</span></div><br>	
-						<div class="bg-primary">Active<br><span>{{total_data['total'] - (total_data['discharged']+total_data['deaths'])}}</span></div><br>
-						<div class="bg-success">Cured<br><span>{{total_data['discharged']}}</span></div><br>
+						<div class="bg-info">Total<br><span>{{total_data['confirmed']}}</span></div><br>	
+						<div class="bg-primary">Active<br><span>{{total_data['active']}}</span></div><br>
+						<div class="bg-success">Cured<br><span>{{total_data['recovered']}}</span></div><br>
 						<div class="bg-danger">Death<br><span>{{total_data['deaths']}}</span></div><br>
 					</ul>
 			</div>
@@ -201,10 +201,10 @@
 			</thead>
 			<tbody *ngFor = "let state of state_data;">
 				<tr style="font-size: 12px;">
-					<td style="padding: 0.5%;">{{state['loc']}}</td>
-					<td>{{state['totalConfirmed']}}</td>
-					<td>{{state['totalConfirmed'] - (state['discharged']+state['deaths'])}}</td>
-					<td>{{state['discharged']}}</td>
+					<td style="padding: 0.5%;">{{state['state']}}</td>
+					<td>{{state['confirmed']}}</td>
+					<td>{{state['active']}}</td>
+					<td>{{state['recovered']}}</td>
 					<td>{{state['deaths']}}</td>
 				</tr>
 			</tbody>

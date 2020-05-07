@@ -179,29 +179,29 @@ export class IndiamapComponent implements OnInit {
 
 
   constructor(private http:HttpClient) {
-    let apires = this.http.get("https://api.rootnet.in/covid19-in/stats/latest");
+    let apires = this.http.get("https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise");
     apires.subscribe((dta) =>  {
-      this.total_data = dta['data']['summary'];
-      this.state_data = dta['data']['regional'];
+      this.total_data = dta['data']['total'];
+      this.state_data = dta['data']['statewise'];
 
       for(var i=0; i<this.state_data.length; i++){
-        if(this.state_data[i]['loc']==="Andhra Pradesh"){
-          this.present_state['State'] = this.state_data[i]['loc'];
-          this.present_state['Total'] = this.state_data[i]['totalConfirmed'];
-          this.present_state['Cured'] = this.state_data[i]['discharged'];
+        if(this.state_data[i]['state']==="Andhra Pradesh"){
+          this.present_state['State'] = this.state_data[i]['state'];
+          this.present_state['Total'] = this.state_data[i]['confirmed'];
+          this.present_state['Cured'] = this.state_data[i]['recovered'];
           this.present_state['Death'] = this.state_data[i]['deaths'];
-          this.present_state['Active'] = this.state_data[i]['totalConfirmed'] - (this.state_data[i]['discharged']+ this.state_data[i]['deaths']);
-        }
+          this.present_state['Active'] = this.state_data[i]['active'];
+          }
       }
     });
 
-    let history = this.http.get("https://api.rootnet.in/covid19-in/stats/history");
+    let history = this.http.get("https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise/history");
     history.subscribe((hist) => {
-      for(var i=0; i<hist['data'].length; i++){
-        this.dates.push(hist['data'][i]['day']); 
-        this.date_count.push(hist['data'][i]['summary']['total']);
-        this.date_cured.push(hist['data'][i]['summary']['discharged']);
-        this.date_death.push(hist['data'][i]['summary']['deaths']);
+      for(var i=0; i<hist['data']['history'].length; i++){
+        this.dates.push(hist['data']['history'][i]['day']);
+        this.date_count.push(hist['data']['history'][i]['total']['confirmed']);
+        this.date_cured.push(hist['data']['history'][i]['total']['recovered']);
+        this.date_death.push(hist['data']['history'][i]['total']['deaths']);
       }
     });
 
@@ -228,12 +228,12 @@ display($event, state){
   this.span_info="";
   this.nodisplay="nospan";
   for(var i=0; i<this.state_data.length; i++){
-    if(state === this.state_data[i]['loc']){
-      this.present_state['State'] = this.state_data[i]['loc'];
-      this.present_state['Total'] = this.state_data[i]['totalConfirmed'];
-      this.present_state['Cured'] = this.state_data[i]['discharged'];
-      this.present_state['Death'] = this.state_data[i]['deaths'];
-      this.present_state['Active'] = this.state_data[i]['totalConfirmed'] - (this.state_data[i]['discharged']+ this.state_data[i]['deaths']);
+    if(state === this.state_data[i]['state']){
+      this.present_state['State'] = this.state_data[i]['state'];
+          this.present_state['Total'] = this.state_data[i]['confirmed'];
+          this.present_state['Cured'] = this.state_data[i]['recovered'];
+          this.present_state['Death'] = this.state_data[i]['deaths'];
+          this.present_state['Active'] = this.state_data[i]['active'];
     }
   }
 }
